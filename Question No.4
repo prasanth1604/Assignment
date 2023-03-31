@@ -1,0 +1,30 @@
+#Question4 - to validate the functionality of each API endpoint.
+#case1
+import json
+import pytest
+import requests
+
+
+def test_method_add():
+    newdata = {
+            "name": "morpheus",
+            "job": "leader"
+           }
+    response1 = requests.post("https://reqres.in/api/users", data=newdata)
+    print(response1.text)
+    print(response1.status_code)
+    added_id = response1.json()['id']
+    print(response1.json()['id'])
+    assert response1.json()['id'] != None
+    assert response1.status_code == 201
+    #Some data is added to the mentioned api, now we have to delete the book with the help of id number that is generated
+
+
+
+def test_method_delete():
+    response2 = requests.delete("https://reqres.in/api/users"+"{added_id}")
+    print(response2.status_code)
+    print(response2.text)
+    response5 = requests.get("https://reqres.in/api/users")
+    print(response5.text)
+
