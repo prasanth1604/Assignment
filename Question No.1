@@ -1,0 +1,25 @@
+#Question1 - Check the status_code
+
+import requests
+import pytest
+import json
+
+def test_method1():
+    response = requests.get("https://reqres.in/api/users?page=2")
+    print(response.text)
+    print(response.status_code)
+    assert response.status_code == 200
+
+
+def test_method2():
+    response2 = requests.get("https://reqres.in/api/users/23")
+    print(response2.text)
+    print(response2.status_code)
+    assert response2.status_code == 404
+
+
+def test_method3():
+    response3 = requests.get("https://reqres.in/api/users")
+    print(response3.status_code)
+    assert response3.status_code == 200
+
