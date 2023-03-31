@@ -1,0 +1,39 @@
+#Question4 - to validate the functionality of each API endpoint.
+#case2
+import requests
+import pytest
+
+
+#LOGIN SUCCESSFUL THEN TOKEN WILL BE GENERATED
+@pytest.fixture()
+def test_method1_add():
+    newdata2 =\
+        {
+            "email": "eve.holt@reqres.in",
+            "password": "cityslick"
+        }
+    response1 = requests.post("https://reqres.in/api/login", data= newdata2)
+    print(response1.text)
+    print(response1.status_code)
+    token_id = response1.json()['token']
+    print(token_id)
+    assert response1.status_code == 200
+
+
+def test_method2_add():
+    newdata3 =\
+        {
+            "email": "eveee.holt@reqres.in",
+            "password": "cityyyssslick"
+        }
+    response2 = requests.post("https://reqres.in/api/login", data= newdata3)
+    print(response2.text)
+    print(response2.status_code)
+    assert response2.status_code == 400
+
+
+def test_method2_delete():
+    response2 = requests.delete("https://reqres.in/api/login")
+    print(response2.text)
+    print(response2.status_code)
+    assert response2.status_code == 204
