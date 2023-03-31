@@ -1,0 +1,17 @@
+#Question 3 - to validate that the response data is correct and in the expected format
+
+import pytest
+import requests
+import json
+
+
+def test_program():
+    response = requests.get("https://reqres.in/api/users/2")
+    assert response.headers['Content-Type'] == 'application/json; charset=utf-8'
+    print(response.text)
+
+
+def test_program1():
+    response2 = requests.get("https://reqres.in/api/unknown")
+    assert response2.headers['Content-Type'] == 'application/json; charset=utf-8'
+    print(response2.text)
