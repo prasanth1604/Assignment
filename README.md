@@ -8,3 +8,5 @@ step4: Python script will be opened in a new project
 step5: Click on "Python Packages" at the bottom of the screen and click on add packages
 In order to run the script, you have to install pytest, requests libraries in py charm
 Step6: Run the program and check test results in the console
+
+
