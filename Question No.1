@@ -21,5 +21,8 @@ def test_method2():
 def test_method3():
     response3 = requests.get("https://reqres.in/api/users")
     print(response3.status_code)
+    print(response3.text)
     assert response3.status_code == 200
+
+
 
