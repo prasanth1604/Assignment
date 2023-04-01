@@ -140,5 +140,3 @@ def test_method2_add():
     assert response_add_invalid_login.status_code == 400
 #This is the invalid data provided in the login page and it should return 400 statuscode
 
-
-
