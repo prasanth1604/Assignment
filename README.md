@@ -7,6 +7,7 @@ step3: Enter the provided github repositry url in the provided field
 step4: Python script will be opened in a new project
 step5: Click on "Python Packages" at the bottom of the screen and click on add packages
 In order to run the script, you have to install pytest, requests libraries in py charm
-Step6: Run the program and check test results in the console
+step6: Before clicking on run, click on edit configurations and click on current file instead of main.py
+step6: Run the program and check test results in the console
 
 
