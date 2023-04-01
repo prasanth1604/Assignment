@@ -91,21 +91,54 @@ def test_method_add():
             "name": "morpheus",
             "job": "leader"
            }
-    response_add_book = requests.post("https://reqres.in/api/users", data=new_data)
-    print(response_add_book.text)
-    print(response_add_book.status_code)
-    added_id = response_add_book.json()['id']
+    response_add_data= requests.post("https://reqres.in/api/users", data=new_data)
+    print(response_add_data.text)
+    print(response_add_data.status_code)
+    added_id = response_add_data.json()['id']
     print(added_id)
-    assert response_add_book.json()['id'] != None
-    assert response_add_book.status_code == 201
+    assert response_add_data.json()['id'] != None
+    assert response_add_data.status_code == 201
     #Some data is added to the mentioned api, now we have to delete the book with the help of id number that is generated
 
 
 def test_method_delete():
-    response_delete_book = requests.delete("https://reqres.in/api/users/2"+"{added_id}")
-    print(response_delete_book.status_code)
-    print(response_delete_book.text)
-    assert response_delete_book.status_code == 204
+    response_delete_data = requests.delete("https://reqres.in/api/users/2"+"{added_id}")
+    print(response_delete_data.status_code)
+    print(response_delete_data.text)
+    assert response_delete_data.status_code == 204
+
+#case2
+import requests
+import pytest
+
+
+#LOGIN SUCCESSFUL THEN TOKEN WILL BE GENERATED
+
+def test_method1_add():
+    newdata2 =\
+        {
+            "email": "eve.holt@reqres.in",
+            "password": "cityslick"
+        }
+    response_add_login_data = requests.post("https://reqres.in/api/login", data= newdata2)
+    print(response_add_login_data.text)
+    print(response_add_login_data.status_code)
+    token_id = response_add_login_data.json()['token']
+    print(token_id)
+    assert response_add_login_data.status_code == 200
+
+
+def test_method2_add():
+    newdata3 =\
+        {
+            "email": "eveee.holt@reqres.in",
+            "password": "cityyyssslick"
+        }
+    response_add_invalid_login = requests.post("https://reqres.in/api/login", data= newdata3)
+    print(response_add_invalid_login.text)
+    print(response_add_invalid_login.status_code)
+    assert response_add_invalid_login.status_code == 400
+#This is the invalid data provided in the login page and it should return 400 statuscode
 
 
 
