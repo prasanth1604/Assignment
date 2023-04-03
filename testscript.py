@@ -108,9 +108,6 @@ def test_method_delete():
     assert response_delete_data.status_code == 204
 
 #case2
-import requests
-import pytest
-
 
 #LOGIN SUCCESSFUL THEN TOKEN WILL BE GENERATED
 
